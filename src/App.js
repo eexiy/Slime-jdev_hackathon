@@ -1,9 +1,17 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.scss';
+import { HomePage } from "./pages/HomePage/HomePage";
+import { Container } from "./components/Container/Container";
 
-function App() {
+
+const App = () => {
   return (
     <div className="App">
-      App
+      <Container>
+        <Routes>
+          <Route path="/*" element={<HomePage />} />
+        </Routes>
+      </Container>
     </div>
   );
 }
