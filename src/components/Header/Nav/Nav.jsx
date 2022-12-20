@@ -8,7 +8,7 @@ export const Nav = () => {
         <nav className='nav'>
             <img className="nav__logo" src={logo} alt="" />
             <ul className="nav__list">
-                <NavLink to='/*' className='nav__list-link'>Главная</NavLink>
+                <NavLink to='/home' className='nav__list-link'>Главная</NavLink>
                 <NavLink to='/genres' className='nav__list-link'>Жанры</NavLink>
                 <NavLink to='/artists' className='nav__list-link'>Артисты</NavLink>
                 <NavLink to='/albums' className='nav__list-link'>Альбомы</NavLink>
