@@ -6,7 +6,7 @@ import SearchBar from '../../SearchBar/SearchBar';
 import { RiAccountCircleLine } from 'react-icons/ri'
 
 
-export const Nav = ({ isAuth = true }) => {
+export const Nav = ({ isAuth = true  }) => {
 
     return (
         <nav className='nav'>
