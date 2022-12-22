@@ -1,0 +1,22 @@
+.search-bar {
+    width: 505px;
+    height: 48px;
+    border-radius: 30px;
+    padding-left: 10px;
+    font-size: 17px;
+    position: relative;
+    color: black;
+    margin-top: -10px;
+}
+
+.search-drop-down {
+    width: 505px;
+    background-color: white;
+    margin-top: 3px;
+    border-radius: 5px;
+    position: absolute;
+}
+.items-list, .items-list > a {
+    color: black;
+    padding: 10px;
+}
