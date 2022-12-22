@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import "./SearchBar.scss";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function SearchBar() {
 
@@ -16,7 +16,6 @@ function SearchBar() {
             await axios.get(`${api}/music/artist/?search=${query}`)
             .then((response) => {
                 setMusic(response.data);
-                console.log(music)
             })
             .catch(error => console.log(error))
         }
@@ -28,8 +27,9 @@ function SearchBar() {
     
   return (
     <div>
-       <input className='search-bar' type="text" placeholder="Поиск... " onChange={(e) => setQuery(e.target.value.toLowerCase())}></input>
+       <input className='search-bar' type="text" onChange={(e) => setQuery(e.target.value.toLowerCase())}></input>
         <div className='search-drop-down'>
+        <i className='fa fa-search' style={{'color': '#35004c'}}></i>
             <ul>
                 {music.map(item => {
                     return query.length > 1 ? <li className='items-list' key={item.slug}><a href=''>{item.user + ' -'}  {item.title}</a></li> : null
@@ -40,4 +40,4 @@ function SearchBar() {
   )
 }
 
-export default SearchBar
+export default SearchBar;
