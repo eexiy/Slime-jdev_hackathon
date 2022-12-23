@@ -1,0 +1,22 @@
+.main__content {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.poster-box {
+    width: 386px;
+    margin-bottom: 20px;
+}
+.poster {
+    width: 350px;
+    height: 400px;
+    cursor: pointer;
+}
+
+
+.album-title {
+    font-size: 20px;
+    padding: 20px 0 50px 0;
+}

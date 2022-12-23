@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Content } from '../../components/Header/Content/Content'
 import { Header } from '../../components/Header/Header';
 import axios from 'axios';
-import poster from "../../assets/img2.png";
+import poster from "../../assets/img.png";
 import "./Genre.scss";
 
 
