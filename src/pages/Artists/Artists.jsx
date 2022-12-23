@@ -19,7 +19,7 @@ export const Artists = () => {
                 .catch(err => console.log(err))
         }
         getArtists()
-    }, [])
+    }, [artists])
 
     return (
         <div>

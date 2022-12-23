@@ -14,11 +14,6 @@ function SearchBar() {
     useEffect(() => {
         const fetchMusic = async () => {
             await axios.get(`${api}/music/artist/?search=${query}`)
-                .then((response) => {
-                    setMusic(response.data);
-                    console.log(music)
-                })
-                .catch(error => console.log(error))
             .then((response) => {
                 setMusic(response.data);
             })
