@@ -8,11 +8,16 @@
     }
     &__list {
         display: flex;
+        align-items: center;
         gap: 71px;
 
         &-link {
             font-size: 20px;
             line-height: 23px;
+        }
+
+        &-icon {
+            font-size: 40px;
         }
     }
 }

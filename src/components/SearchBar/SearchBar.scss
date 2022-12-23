@@ -1,0 +1,24 @@
+.search-bar {
+    max-width: 505px;
+    width: 100%;
+    border-radius: 30px;
+    padding: 14px 20px;
+    font-size: 17px;
+    position: relative;
+    color: black;
+    border: none;
+    outline:  none;
+}
+
+.search-drop-down {
+    max-width: 505px;
+    width: 100%;
+    background-color: white;
+    margin-top: 3px;
+    border-radius: 5px;
+    position: absolute;
+}
+.items-list, .items-list > a {
+    color: black;
+    padding: 10px;
+}
