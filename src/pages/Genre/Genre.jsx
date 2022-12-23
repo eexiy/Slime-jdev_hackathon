@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Content } from '../../components/Header/Content/Content'
 import { Header } from '../../components/Header/Header';
 import axios from 'axios';
 import poster from "../../assets/img.png";
@@ -21,7 +20,7 @@ export const Genre = () => {
                 .catch(err => console.log(err))
         }
         getGenres()
-    }, [])
+    }, [genres])
 
     return (
         <div>
