@@ -19,25 +19,30 @@ function SearchBar() {
                     console.log(music)
                 })
                 .catch(error => console.log(error))
+            .then((response) => {
+                setMusic(response.data);
+            })
+            .catch(error => console.log(error))
         }
         fetchMusic();
 
         if (query.length === 0 || query.length > 1) fetchMusic();
     }, [query]);
 
-
-    return (
-        <div>
-            <input className='search-bar' type="text" placeholder="Поиск... " onChange={(e) => setQuery(e.target.value.toLowerCase())}></input>
-            <div className='search-drop-down'>
-                <ul>
-                    {music.map(item => {
-                        return query.length > 1 ? <li className='items-list' key={item.slug}><NavLink>{item.user + ' -'}  {item.title}</NavLink></li> : null
-                    })}
-                </ul>
-            </div>
+    
+  return (
+    <div>
+       <input className='search-bar' type="text" onChange={(e) => setQuery(e.target.value.toLowerCase())}></input>
+        <div className='search-drop-down'>
+        <i className='fa fa-search' style={{'color': '#35004c'}}></i>
+            <ul>
+                {music.map(item => {
+                    return query.length > 1 ? <li className='items-list' key={item.slug}><NavLink>{item.user + ' -'}  {item.title}</NavLink></li> : null
+                })}
+            </ul>
+        </div>
         </div>
     )
 }
 
-export default SearchBar
+export default SearchBar;
