@@ -6,6 +6,11 @@ import SearchBar from '../../SearchBar/SearchBar';
 import { RiAccountCircleLine } from 'react-icons/ri'
 
 
+// import loginIcon from "../../../assets/profile-circle.png";
+// import { RiAccountCircleLine } from 'react-icons/ri';
+
+
+
 export const Nav = ({ isAuth = true  }) => {
 
     return (
@@ -20,6 +25,11 @@ export const Nav = ({ isAuth = true  }) => {
                 <NavLink to='/genres' className='nav__list-link'>Жанры</NavLink>
                 <NavLink to='/artists' className='nav__list-link'>Артисты</NavLink>
                 <NavLink to='/albums' className='nav__list-link'>Альбомы</NavLink>
+                {/* {isAuth ? <RiAccountCircleLine className='nav__list-icon' /> : ''} */}
+
+                {/* {authenticated ?  */}
+                {/* <NavLink to='/profile'><img id='my-profile' alt='slime-profile-icon' src={loginIcon}></img></NavLink> */}
+                {/* : null} */}
             </ul>
             {
                 isAuth ? <RiAccountCircleLine className='nav__list-icon' /> : ''

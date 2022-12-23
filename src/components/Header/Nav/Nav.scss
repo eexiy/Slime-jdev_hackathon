@@ -14,10 +14,15 @@
         &-link {
             font-size: 20px;
             line-height: 23px;
+            margin-top: 10px;
         }
 
         &-icon {
             font-size: 40px;
         }
     }
+    #my-profile {
+        cursor: pointer;
+    }
+    
 }
