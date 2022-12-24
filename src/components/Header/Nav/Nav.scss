@@ -1,23 +1,40 @@
 .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    margin: 20px 0;
+  }
+  &__list {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 71px;
 
-    &__logo {
-        margin: 20px 0;
+    &-link {
+      font-size: 20px;
+      line-height: 23px;
     }
-    &__list {
-        display: flex;
-        align-items: center;
-        gap: 71px;
 
-        &-link {
-            font-size: 20px;
-            line-height: 23px;
-        }
-
-        &-icon {
-            font-size: 40px;
-        }
+    &-icon {
+      font-size: 40px;
     }
+  }
+}
+.modalBlock {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.01);
+}
+.modalInnerBlock {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.modalInnerBlock div:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.modalInnerBlock div {
+  width: 100%;
+  padding: 15px 15px 15px 10px;
+  cursor: pointer;
 }

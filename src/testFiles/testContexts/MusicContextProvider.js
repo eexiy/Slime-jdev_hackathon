@@ -29,6 +29,8 @@ const API = "http://34.116.147.191";
 const MusicContextProvider = ({ children }) => {
   const [genres, setGenres] = useState([]);
 
+  const [users, setUsers] = useState([]);
+
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   async function createSong(newSong) {
@@ -71,17 +73,44 @@ const MusicContextProvider = ({ children }) => {
       console.log(err);
     }
   }
+  async function getUsers() {
+    try {
+      const res = await axios(`${API}/account/users/`);
+      console.log(res);
+      setUsers(res.data);
+      console.log(users);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function getOneSong(slug) {
+    try {
+      const res = await axios(`${API}/music/note/${slug}`);
+      dispatch({
+        type: "GET_ONE_SONG",
+        payload: res.data,
+      });
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <musicContext.Provider
       value={{
         musics: state.musics,
         genres,
+        users,
+        oneSong: state.oneSong,
 
         setGenres,
         createSong,
         getSongs,
         getGenres,
+        getUsers,
+        getOneSong,
       }}>
       {children}
     </musicContext.Provider>

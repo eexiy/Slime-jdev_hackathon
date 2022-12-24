@@ -21,13 +21,14 @@ const TestAuthContextProvider = ({ children }) => {
     }
   }
 
-  async function login(loginObj, email) {
+  async function login(loginObj, email, navigate) {
     setLoading(true);
     try {
       const res = await axios.post(`${API}/account/login/`, loginObj);
       console.log(res);
       localStorage.setItem("tokens", JSON.stringify(res.data));
       localStorage.setItem("email", email);
+      navigate("/");
     } catch (err) {
       console.log(err);
     }

@@ -8,6 +8,8 @@ import TestLoginPage from "./testFiles/testPages/TestLoginPage";
 import MusicContextProvider from "./testFiles/testContexts/MusicContextProvider";
 import TestAddSongPage from "./testFiles/testPages/TestAddSongPage";
 import TestList from "./testFiles/testPages/TestList";
+import TestSongDetails from "./testFiles/testPages/TestSongDetails";
+
 const App = () => {
   return (
     <div className="App">
@@ -15,11 +17,12 @@ const App = () => {
         <MusicContextProvider>
           <Container>
             <Routes>
-              <Route path="/*" element={<HomePage />} />
+              <Route path="/" element={<HomePage />} />
               <Route path="/test-register" element={<TestRegisterPage />} />
               <Route path="/test-login" element={<TestLoginPage />} />
               <Route path="/test-add-song" element={<TestAddSongPage />} />
               <Route path="/test-song-list" element={<TestList />} />
+              <Route path="/songs/:slug" element={<TestSongDetails />} />
             </Routes>
           </Container>
         </MusicContextProvider>

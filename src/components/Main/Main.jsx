@@ -5,14 +5,26 @@ import img2 from "../../assets/img2.png";
 import img3 from "../../assets/img3.png";
 import "./Main.scss";
 import { musicContext } from "../../testFiles/testContexts/MusicContextProvider";
+import { useHorizontalScroll } from "../CustomFunctions/useSideScroll";
+import { useNavigate } from "react-router-dom";
+import "../../testFiles/testPages/Alert.scss";
 
 export const Main = () => {
-  const { genres, getGenres } = useContext(musicContext);
+  const { genres, getGenres, musics, getSongs, users, getUsers } =
+    useContext(musicContext);
+  const scrollRef = useHorizontalScroll();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getGenres();
   }, []);
-
+  useEffect(() => {
+    getSongs();
+  }, []);
+  useEffect(() => {
+    getUsers();
+  }, []);
   //   const handleWheel = event => {
   //     event.preventDefault();
 
@@ -21,14 +33,21 @@ export const Main = () => {
   //   };
   return (
     <div>
+      <div className="blockBackground">
+        <div className="firstFlow"></div>
+        <div className="secondFlow"></div>
+        <div className="thirdFlow"></div>
+      </div>
       <h1 className="main__title">Жанры</h1>
-      <div
-        className="main__content"
-        //   onWheel={e => handleWheel(e)}
-      >
+      <div className="main__content">
         {genres ? (
           genres.map(item => (
-            <Content key={item.genre} img={img} descr={item.genre} />
+            <Content
+              key={item.genre}
+              img={img}
+              descr={item.genre}
+              genre={item.genre}
+            />
           ))
         ) : (
           <></>
@@ -37,18 +56,33 @@ export const Main = () => {
 
       <h1 className="main__title">Топ Артисты</h1>
       <div className="main__content">
-        <Content img={img2} descr="Adele" />
-        <Content img={img2} descr="The Weeknd" />
-        <Content img={img2} descr="Billie Eilish" />
-        <Content img={img2} descr="Dua Lipa" />
+        {users ? (
+          users.map(item => (
+            <Content
+              key={item.email}
+              img={"http://34.116.147.191/media" + item.image.slice(21)}
+              descr={item.user}
+            />
+          ))
+        ) : (
+          <></>
+        )}
       </div>
 
-      <h1 className="main__title">Топ Альбомы</h1>
+      <h1 className="main__title">Топ Треки</h1>
       <div className="main__content">
-        <Content img={img3} descr="The Rolling Stone - Tattoo You" />
-        <Content img={img3} descr="Shakira - Dónde Están los Ladrones" />
-        <Content img={img3} descr="The Stooges - The Stooges" />
-        <Content img={img3} descr="John Mayer - Continuum" />
+        {musics ? (
+          musics.map(item => (
+            <Content
+              key={item.slug}
+              img={item.image}
+              descr={item.title + " - " + item.user}
+              slug={item.slug}
+            />
+          ))
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
