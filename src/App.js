@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import { HomePage } from "./pages/HomePage/HomePage";
 import Profile from './pages/Profile/Profile';
+import { PersonalPage } from './pages/PersonalPage/PersonalPage';
 import { Genre } from './pages/Genre/Genre';
 import { Artists } from './pages/Artists/Artists';
 import { Albums } from './pages/Albums/Albums';
@@ -32,6 +33,7 @@ const App = () => {
               <Route path="/genres" element={<Genre />} />
               <Route path="/artists" element={<Artists />} />
               <Route path="/albums" element={<Albums />} />
+              <Route path="/personal-page" element={<PersonalPage />} />
             </Routes>
           </Container>
         </MusicContextProvider>
