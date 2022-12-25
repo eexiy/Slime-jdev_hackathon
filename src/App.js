@@ -5,23 +5,38 @@ import Profile from './pages/Profile/Profile';
 import { Genre } from './pages/Genre/Genre';
 import { Artists } from './pages/Artists/Artists';
 import { Albums } from './pages/Albums/Albums';
-import Register from "./pages/Register/Register";
-import Register2 from "./pages/Register2/Register2";
 
+import { Container } from "./components/Container/Container";
+import TestAuthContextProvider from "./testFiles/testContexts/TestAuthContextProvider";
+import TestRegisterPage from "./testFiles/testPages/TestRegisterPage";
+import TestLoginPage from "./testFiles/testPages/TestLoginPage";
+import MusicContextProvider from "./testFiles/testContexts/MusicContextProvider";
+import TestAddSongPage from "./testFiles/testPages/TestAddSongPage";
+import TestList from "./testFiles/testPages/TestList";
+import TestSongDetails from "./testFiles/testPages/TestSongDetails";
 
 const App = () => {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/*" element={<HomePage />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/genres" element={<Genre />} />
-        <Route path="/artists" element={<Artists />} />
-        <Route path="/albums" element={<Albums />} />
-        <Route path="/reg" element={<Register />} />
-        <Route path="/reg2" element={<Register2 />} />
-      </Routes>
-    </div>
+      <TestAuthContextProvider>
+        <MusicContextProvider>
+          <Container>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/test-register" element={<TestRegisterPage />} />
+              <Route path="/test-login" element={<TestLoginPage />} />
+              <Route path="/test-add-song" element={<TestAddSongPage />} />
+              <Route path="/test-song-list" element={<TestList />} />
+              <Route path="/songs/:slug" element={<TestSongDetails />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/genres" element={<Genre />} />
+              <Route path="/artists" element={<Artists />} />
+              <Route path="/albums" element={<Albums />} />
+            </Routes>
+          </Container>
+        </MusicContextProvider>
+      </TestAuthContextProvider>
+    </div >
   );
 };
 
