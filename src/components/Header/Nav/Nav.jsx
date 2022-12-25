@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Nav.scss";
 import logo from "../../../assets/1233.png";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import SearchBar from "../../SearchBar/SearchBar";
 import { RiAccountCircleLine } from "react-icons/ri";
 import useOutsideAlerter from "../../CustomFunctions/useOutside";
@@ -46,7 +46,9 @@ export const Nav = () => {
             <div className="modalBlock" ref={ref}>
               <div className="modalInnerBlock">
                 <div>{localStorage.getItem("email")}</div>
-                <div>Мой профиль</div>
+                <div>
+                  <Link to='/personal-page'>Мой профиль</Link>
+                </div>
                 <div
                   onClick={() => {
                     localStorage.removeItem("tokens");
