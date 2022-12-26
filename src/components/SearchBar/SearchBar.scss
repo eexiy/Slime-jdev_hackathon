@@ -2,11 +2,12 @@
     max-width: 505px;
     width: 100%;
     border-radius: 30px;
-    padding-left: 50px;
     font-size: 19px;
     position: relative;
     color: black;
-    box-shadow: 0px 1px 20px 1px #8d6e98;
+    padding: 10px 0 10px 50px;
+    outline: none;
+    border: none;
 }
 
 .search-drop-down {
@@ -16,7 +17,6 @@
     margin-top: 3px;
     border-radius: 15px;
     position: absolute;
-    box-shadow: 0px 4px 20px 2px #8d6e98;
 }
 .items-list, .items-list > a {
     color: black;
