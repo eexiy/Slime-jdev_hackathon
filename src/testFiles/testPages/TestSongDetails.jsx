@@ -48,11 +48,17 @@ const TestSongDetails = () => {
               </div>
               <div className="songTitles">
                 <div className="songInnerTitles">
-                  <h3 className="songUser">{oneSong.user}</h3>
+                  <h3
+                    className="songUser"
+                    onClick={() => {
+                      navigate(`/artist/${oneSong.user}`);
+                    }}>
+                    {oneSong.user}
+                  </h3>
                   <h3>{oneSong.title}</h3>
                 </div>
                 <div className="songBnts">
-                  <button>Добавить в альбом +</button>
+                  <button>Добавить в плейлист +</button>
                   {/* <button></button> */}
                 </div>
               </div>

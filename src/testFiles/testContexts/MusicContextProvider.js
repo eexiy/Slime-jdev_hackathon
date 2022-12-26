@@ -33,6 +33,10 @@ const MusicContextProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
+  const [oneUser, setOneUser] = useState(null);
+
+  const [playlists, setPlaylists] = useState([]);
+
   async function createSong(newSong) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
@@ -84,6 +88,17 @@ const MusicContextProvider = ({ children }) => {
     }
   }
 
+  async function getOneUser(email) {
+    try {
+      const res = await axios(`${API}/account/user/${email}`);
+      setOneUser(res.data);
+      console.log(res);
+      console.log(oneUser);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   async function getOneSong(slug) {
     try {
       const res = await axios(`${API}/music/note/${slug}`);
@@ -97,6 +112,30 @@ const MusicContextProvider = ({ children }) => {
     }
   }
 
+  async function getPlaylists() {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios(
+        `${API}/playlist/crud-playlist/my-playlist/`,
+        config
+      );
+
+      console.log(res.data);
+
+      setPlaylists(res.data);
+
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <musicContext.Provider
       value={{
@@ -104,13 +143,17 @@ const MusicContextProvider = ({ children }) => {
         genres,
         users,
         oneSong: state.oneSong,
+        oneUser,
+        playlists,
 
+        getOneUser,
         setGenres,
         createSong,
         getSongs,
         getGenres,
         getUsers,
         getOneSong,
+        getPlaylists,
       }}>
       {children}
     </musicContext.Provider>

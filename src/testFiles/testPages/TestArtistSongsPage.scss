@@ -1,0 +1,32 @@
+.backgroundGrad {
+  background: linear-gradient(
+    174.87deg,
+    #362330 4.12%,
+    rgba(54, 35, 48, 0) 92.54%
+  );
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 500px;
+  z-index: -1;
+  background-size: cover;
+}
+.imageDiv {
+  background: hsl(283, 15%, 40%);
+  padding: 20px;
+  width: 400px;
+  overflow: hidden;
+}
+.artistImage {
+  width: 100%;
+  transition: 0.5s;
+}
+.artistImage:hover {
+  transform: scale(1.01);
+}
+.artistInfo {
+  display: flex;
+  gap: 50px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}

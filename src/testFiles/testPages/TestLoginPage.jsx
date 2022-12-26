@@ -55,7 +55,7 @@ const TestLoginPage = () => {
                 <h4>Пароль</h4>
               </div>
               <input
-                type="text"
+                type="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
               />

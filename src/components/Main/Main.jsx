@@ -62,6 +62,7 @@ export const Main = () => {
               key={item.email}
               img={"http://34.116.147.191/media" + item.image.slice(21)}
               descr={item.user}
+              artist={item.user}
             />
           ))
         ) : (

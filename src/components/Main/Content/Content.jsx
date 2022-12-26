@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Content.scss";
 
-export const Content = ({ img, descr, slug, genre }) => {
+export const Content = ({ img, descr, slug, genre, artist }) => {
   const navigate = useNavigate();
   return (
     <div
@@ -13,6 +13,9 @@ export const Content = ({ img, descr, slug, genre }) => {
         }
         if (genre) {
           navigate(`/genres/${genre}`);
+        }
+        if (artist) {
+          navigate(`/artist/${artist.replace(/\//g, "*")}`);
         }
       }}>
       {/* <img src={img} alt="" className="main__img" /> */}
